@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Wed Aug 24 09:19:00 2022
+
 @author: mshah
 """
 
 '''
 You will need to create folders before running each function. Example usage below:
     
-    from PlugAndPlay import *
+    from PreprocessingFunctions import *
     
     #P1 = parent dir
     buildDirectories(P1, Split = True, Filtered = True, Masks = True, Image = True)
@@ -36,7 +38,6 @@ import numpy as np
 from numpy import asarray
 from datetime import date
 import matplotlib.pyplot as plt
-
 
 def renameFiles(inputPath, outputPath = "Same"):
     if outputPath == "Same":
@@ -185,7 +186,10 @@ def saveLossFunction(outputPath, epochs, modelName='history', notes=None):
     D1 = str(date.today().day)
     D2 = D1.zfill(2)
     T1 = Y2+M2+D2
-    P1 = T1 + '_E' + epochs + notes + '.jpg'
+    if notes != "None":
+        P1 = T1 + '_E' + str(epochs) + notes + '.jpg'
+    else:
+        P1 = T1 + '_E' + str(epochs) + '.jpg'
     plt.xlabel("Epochs")
     plt.plot(modelName.history['loss'], color='b', label="Loss")
     plt.plot(modelName.history['val_loss'], color='r', label="Validation Loss")
@@ -207,6 +211,3 @@ def quickUsage(P1):
     binarizeMasks(S1)
     padFiles(S1)
     sortImages(S1, M1, I1)
-    
-        
-        
