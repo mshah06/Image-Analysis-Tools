@@ -7,7 +7,7 @@ Created on Sat Oct 01 07:23:00 2022
 """
 
 '''
-You will need to create folders before running each function. Example usage below:
+You will need to create folders before running each function. See the toydata script for an example of the image modifications created by these functions. Example usage below:
     
     from PreprocessingFunctions import *
     
